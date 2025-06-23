@@ -1,22 +1,23 @@
-
-const express = require('express');
-const cors = require('cors');
-const urlRoutes = require('./routes/urlRoutes');
-
+const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000;
-require('dotenv').config();
+const urlRoutes = require("./routes/urlRoutes");
+const Log = require("./logger");
 
 app.use(express.json());
 
-app.use(cors());
+const cors = require("cors");
 
-app.get('/', (req, res) => {
-  res.send('URL Shortener Backend is running!');
-});
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
-app.use('/', urlRoutes);
+Log("backend", "info", "service", "Starting URL Shortener Backend");
 
+app.use("/", urlRoutes);
+
+const PORT = 5000;
 app.listen(PORT, () => {
-  console.log(`Backend server started on http://localhost:${PORT}`);
+  Log("backend", "info", "service", `Server running on port ${PORT}`);
 });

@@ -1,16 +1,15 @@
-import React from 'react';
-import { Container, CssBaseline } from '@mui/material';
-import UrlShortenerForm from './components/UrlShortenerForm';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ShortenerPage from "./pages/ShortenerPage.jsx";
+import StatsPage from "./pages/StatsPage.jsx";
 
 function App() {
   return (
-    <>
-      <CssBaseline />
-      <Container maxWidth="md">
-        <UrlShortenerForm />
-      </Container>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ShortenerPage />} />
+        <Route path="/stats" element={<StatsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

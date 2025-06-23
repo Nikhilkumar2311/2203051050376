@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 const LOG_SERVER_URL = "http://20.244.56.144/evaluation-service/logs";
 
@@ -28,4 +28,4 @@ const Log = async (stack, level, pkg, message) => {
   }
 };
 
-module.exports = Log;
+export default Log;
