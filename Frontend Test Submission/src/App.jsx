@@ -1,9 +1,15 @@
-import "./App.css";
+import React from 'react';
+import { Container, CssBaseline } from '@mui/material';
+import UrlShortenerForm from './components/UrlShortenerForm';
+import './App.css';
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <CssBaseline />
+      <Container maxWidth="md">
+        <UrlShortenerForm />
+      </Container>
     </>
   );
 }
